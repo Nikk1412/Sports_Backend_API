@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Update Match</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-8">
+    <h1 class="text-2xl font-bold text-blue-700 mb-6">Admin Panel - Update Match</h1>
+
+    <form class="bg-white p-6 rounded-lg shadow space-y-4 max-w-lg">
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Team 1</label>
+                <input type="text" name="team1" class="w-full mt-1 p-2 border rounded" value="IND" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Team 2</label>
+                <input type="text" name="team2" class="w-full mt-1 p-2 border rounded" value="PAK" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Team 1 Score</label>
+                <input type="number" name="score1" class="w-full mt-1 p-2 border rounded" value="133" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Team 1 Wickets</label>
+                <input type="number" name="wicket1" class="w-full mt-1 p-2 border rounded" value="2" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Team 2 Score</label>
+                <input type="number" name="score2" class="w-full mt-1 p-2 border rounded" value="122" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Team 2 Wickets</label>
+                <input type="number" name="wicket2" class="w-full mt-1 p-2 border rounded" value="4" />
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Date</label>
+                <input type="date" name="date" class="w-full mt-1 p-2 border rounded" value="2025-08-23" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Time</label>
+                <input type="time" name="time" class="w-full mt-1 p-2 border rounded" value="10:00" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Total Overs</label>
+                <input type="number" name="total_overs" class="w-full mt-1 p-2 border rounded" value="10" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Current Over</label>
+                <input type="text" name="current_over" class="w-full mt-1 p-2 border rounded" value="7.3" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Current Inning</label>
+                <select name="current_inning" class="w-full mt-1 p-2 border rounded">
+                    <option value="1" selected>1st</option>
+                    <option value="2">2nd</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            Update Match
+        </button>
+    </form>
+</body>
+
+</html>

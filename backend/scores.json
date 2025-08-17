@@ -1,0 +1,487 @@
+[
+  {
+    "_id": "match_1",
+    "team1": "team_1",
+    "team2": "team_2",
+    "status": "ended",
+    "sport": "Football",
+    "date_time": "2025-08-01T17:00:00Z",
+    "is_final": true,
+    "winner_id": "team_1",
+    "scores": {
+      "team1": 3,
+      "team2": 1
+    }
+  },
+  {
+    "_id": "match_2",
+    "team1": "team_3",
+    "team2": "team_4",
+    "status": "live",
+    "sport": "Cricket",
+    "date_time": "2025-08-01T17:00:00Z",
+    "is_final": true,
+    "scores": {
+      "team1": { "runs": 120, "wickets": 7, "overs": "18.3" },
+      "team2": { "runs": 130, "wickets": 5, "overs": "19.1" }
+    }
+  },
+  {
+    "_id": "match_3",
+    "team1": "team_5",
+    "team2": "team_6",
+    "status": "upcoming",
+    "sport": "Basketball",
+    "date_time": "2025-08-03T15:00:00Z",
+    "is_final": false
+  },
+  {
+    "_id": "match_4",
+    "team1": "team_7",
+    "team2": "team_8",
+    "status": "cancelled",
+    "sport": "Volleyball",
+    "date_time": "2025-07-31T14:00:00Z",
+    "is_final": false,
+    "cancellation_reason": "Weather conditions"
+  },
+  {
+    "_id": "match_5",
+    "team1": "team_1",
+    "team2": "team_5",
+    "status": "ended",
+    "sport": "Football",
+    "date_time": "2025-08-02T19:00:00Z",
+    "is_final": false,
+    "winner_id": "team_5",
+    "scores": {
+      "full_time": [1, 2]
+    }
+  },
+  {
+    "_id": "match_6",
+    "team1": "team_2",
+    "team2": "team_6",
+    "status": "upcoming",
+    "sport": "Basketball",
+    "date_time": "2025-08-04T10:00:00Z",
+    "is_final": false
+  },
+  {
+    "_id": "match_7",
+    "team1": "team_3",
+    "team2": "team_7",
+    "status": "ended",
+    "sport": "Cricket",
+    "date_time": "2025-08-01T10:00:00Z",
+    "is_final": false,
+    "winner_id": "team_3",
+    "scores": {
+      "team1": { "runs": 185, "wickets": 4, "overs": "20.0" },
+      "team2": { "runs": 150, "wickets": 8, "overs": "20.0" }
+    }
+  },
+  {
+    "_id": "match_8",
+    "team1": "team_4",
+    "team2": "team_8",
+    "status": "ended",
+    "sport": "Volleyball",
+    "date_time": "2025-08-02T12:00:00Z",
+    "is_final": true,
+    "winner_id": "team_8",
+    "scores": {
+      "sets": [
+        [20, 25],
+        [25, 23],
+        [21, 25]
+      ]
+    }
+  },
+  {
+    "_id": "match_9",
+    "team1": "team_1",
+    "team2": "team_6",
+    "status": "upcoming",
+    "sport": "Football",
+    "date_time": "2025-08-05T14:30:00Z",
+    "is_final": false
+  },
+  {
+    "_id": "match_10",
+    "team1": "team_2",
+    "team2": "team_5",
+    "status": "live",
+    "sport": "Basketball",
+    "date_time": "2025-08-03T09:00:00Z",
+    "is_final": true,
+    "scores": {
+      "quarter_1": [25, 28],
+      "quarter_2": [21, 19],
+      "quarter_3": [30, 25]
+    }
+  },
+  {
+    "_id": "match_11",
+    "team1": "team_7",
+    "team2": "team_3",
+    "status": "upcoming",
+    "sport": "Volleyball",
+    "date_time": "2025-08-06T18:00:00Z",
+    "is_final": false
+  },
+  {
+    "_id": "match_12",
+    "team1": "team_8",
+    "team2": "team_4",
+    "status": "ended",
+    "sport": "Cricket",
+    "date_time": "2025-08-02T16:30:00Z",
+    "is_final": false,
+    "winner_id": "team_4",
+    "scores": {
+      "team1": { "runs": 95, "wickets": 10, "overs": "15.2" },
+      "team2": { "runs": 96, "wickets": 2, "overs": "12.0" }
+    }
+  },
+  {
+    "_id": "match_13",
+    "team1": "team_1",
+    "team2": "team_7",
+    "status": "ended",
+    "sport": "Football",
+    "date_time": "2025-07-30T16:00:00Z",
+    "is_final": false,
+    "winner_id": "team_1",
+    "scores": {
+      "full_time": [4, 1]
+    }
+  },
+  {
+    "_id": "match_14",
+    "team1": "team_2",
+    "team2": "team_8",
+    "status": "upcoming",
+    "sport": "Volleyball",
+    "date_time": "2025-08-04T20:00:00Z",
+    "is_final": false
+  },
+  {
+    "_id": "match_15",
+    "team1": "team_3",
+    "team2": "team_5",
+    "status": "live",
+    "sport": "Cricket",
+    "date_time": "2025-08-03T11:00:00Z",
+    "is_final": false,
+    "scores": {
+      "team1": { "runs": 150, "wickets": 5, "overs": "17.4" },
+      "team2": { "runs": null, "wickets": null, "overs": null }
+    }
+  },
+  {
+    "_id": "match_16",
+    "team1": "team_4",
+    "team2": "team_6",
+    "status": "cancelled",
+    "sport": "Basketball",
+    "date_time": "2025-08-01T21:00:00Z",
+    "is_final": false,
+    "cancellation_reason": "Team no-show"
+  },
+  {
+    "_id": "match_17",
+    "team1": "team_1",
+    "team2": "team_3",
+    "status": "ended",
+    "sport": "Football",
+    "date_time": "2025-08-02T13:00:00Z",
+    "is_final": true,
+    "winner_id": "team_3",
+    "scores": {
+      "full_time": [2, 3]
+    }
+  },
+  {
+    "_id": "match_18",
+    "team1": "team_2",
+    "team2": "team_4",
+    "status": "upcoming",
+    "sport": "Cricket",
+    "date_time": "2025-08-07T12:00:00Z",
+    "is_final": false
+  },
+  {
+    "_id": "match_19",
+    "team1": "team_5",
+    "team2": "team_7",
+    "status": "ended",
+    "sport": "Basketball",
+    "date_time": "2025-07-31T18:00:00Z",
+    "is_final": false,
+    "winner_id": "team_5",
+    "scores": {
+      "full_time": [105, 98]
+    }
+  },
+  {
+    "_id": "match_20",
+    "team1": "team_6",
+    "team2": "team_8",
+    "status": "live",
+    "sport": "Volleyball",
+    "date_time": "2025-08-03T16:00:00Z",
+    "is_final": false,
+    "scores": {
+      "sets": [
+        [25, 22],
+        [21, 25],
+        [25, 20]
+      ]
+    }
+  },
+  {
+    "_id": "match_21",
+    "team1": "team_1",
+    "team2": "team_4",
+    "status": "live",
+    "sport": "Football",
+    "date_time": "2025-08-03T18:00:00Z",
+    "is_final": false,
+    "scores": {
+      "full_time": [1, 1]
+    }
+  },
+  {
+    "_id": "match_22",
+    "team1": "team_2",
+    "team2": "team_3",
+    "status": "ended",
+    "sport": "Cricket",
+    "date_time": "2025-08-02T11:00:00Z",
+    "is_final": true,
+    "winner_id": "team_2",
+    "scores": {
+      "team1": { "runs": 140, "wickets": 8, "overs": "20.0" },
+      "team2": { "runs": 141, "wickets": 3, "overs": "18.5" }
+    }
+  },
+  {
+    "_id": "match_23",
+    "team1": "team_5",
+    "team2": "team_8",
+    "status": "upcoming",
+    "sport": "Basketball",
+    "date_time": "2025-08-05T21:00:00Z",
+    "is_final": true
+  },
+  {
+    "_id": "match_24",
+    "team1": "team_6",
+    "team2": "team_7",
+    "status": "ended",
+    "sport": "Volleyball",
+    "date_time": "2025-08-01T15:00:00Z",
+    "is_final": false,
+    "winner_id": "team_6",
+    "scores": {
+      "sets": [
+        [25, 23],
+        [25, 21]
+      ]
+    }
+  },
+  {
+    "_id": "match_25",
+    "team1": "team_2",
+    "team2": "team_7",
+    "status": "upcoming",
+    "sport": "Football",
+    "date_time": "2025-08-06T15:00:00Z",
+    "is_final": false
+  },
+  {
+    "_id": "match_26",
+    "team1": "team_3",
+    "team2": "team_8",
+    "status": "ended",
+    "sport": "Cricket",
+    "date_time": "2025-07-30T18:00:00Z",
+    "is_final": false,
+    "winner_id": "team_8",
+    "scores": {
+      "team1": { "runs": 160, "wickets": 6, "overs": "20.0" },
+      "team2": { "runs": 162, "wickets": 4, "overs": "19.3" }
+    }
+  },
+  {
+    "_id": "match_27",
+    "team1": "team_4",
+    "team2": "team_5",
+    "status": "live",
+    "sport": "Basketball",
+    "date_time": "2025-08-03T19:00:00Z",
+    "is_final": false,
+    "scores": {
+      "quarter_1": [18, 22],
+      "quarter_2": [25, 20]
+    }
+  },
+  {
+    "_id": "match_28",
+    "team1": "team_1",
+    "team2": "team_6",
+    "status": "upcoming",
+    "sport": "Volleyball",
+    "date_time": "2025-08-08T13:00:00Z",
+    "is_final": false
+  },
+  {
+    "_id": "match_29",
+    "team1": "team_3",
+    "team2": "team_1",
+    "status": "live",
+    "sport": "Cricket",
+    "date_time": "2025-08-03T14:30:00Z",
+    "is_final": false,
+    "scores": {
+      "team1": { "runs": 85, "wickets": 3, "overs": "10.1" },
+      "team2": { "runs": null, "wickets": null, "overs": null }
+    }
+  },
+  {
+    "_id": "match_30",
+    "team1": "team_4",
+    "team2": "team_2",
+    "status": "upcoming",
+    "sport": "Football",
+    "date_time": "2025-08-09T17:00:00Z",
+    "is_final": true
+  },
+  {
+    "_id": "match_31",
+    "team1": "team_5",
+    "team2": "team_7",
+    "status": "ended",
+    "sport": "Basketball",
+    "date_time": "2025-08-01T20:00:00Z",
+    "is_final": false,
+    "winner_id": "team_5",
+    "scores": {
+      "full_time": [110, 102]
+    }
+  },
+  {
+    "_id": "match_32",
+    "team1": "team_6",
+    "team2": "team_8",
+    "status": "cancelled",
+    "sport": "Volleyball",
+    "date_time": "2025-08-02T18:00:00Z",
+    "is_final": false,
+    "cancellation_reason": "Player injury"
+  },
+  {
+    "_id": "match_33",
+    "team1": "team_1",
+    "team2": "team_8",
+    "status": "upcoming",
+    "sport": "Football",
+    "date_time": "2025-08-10T14:00:00Z",
+    "is_final": false
+  },
+  {
+    "_id": "match_34",
+    "team1": "team_2",
+    "team2": "team_7",
+    "status": "live",
+    "sport": "Volleyball",
+    "date_time": "2025-08-03T10:00:00Z",
+    "is_final": false,
+    "scores": {
+      "sets": [
+        [25, 20],
+        [22, 25]
+      ]
+    }
+  },
+  {
+    "_id": "match_35",
+    "team1": "team_3",
+    "team2": "team_6",
+    "status": "ended",
+    "sport": "Cricket",
+    "date_time": "2025-08-01T13:00:00Z",
+    "is_final": false,
+    "winner_id": "team_3",
+    "scores": {
+      "team1": { "runs": 201, "wickets": 3, "overs": "20.0" },
+      "team2": { "runs": 189, "wickets": 7, "overs": "20.0" }
+    }
+  },
+  {
+    "_id": "match_36",
+    "team1": "team_4",
+    "team2": "team_5",
+    "status": "live",
+    "sport": "Basketball",
+    "date_time": "2025-08-03T21:00:00Z",
+    "is_final": true,
+    "scores": {
+      "quarter_1": [22, 22],
+      "quarter_2": [24, 21]
+    }
+  },
+  {
+    "_id": "match_37",
+    "team1": "team_1",
+    "team2": "team_5",
+    "status": "ended",
+    "sport": "Football",
+    "date_time": "2025-08-02T17:00:00Z",
+    "is_final": false,
+    "winner_id": "team_1",
+    "scores": {
+      "full_time": [3, 1]
+    }
+  },
+  {
+    "_id": "match_38",
+    "team1": "team_2",
+    "team2": "team_6",
+    "status": "upcoming",
+    "sport": "Basketball",
+    "date_time": "2025-08-11T16:00:00Z",
+    "is_final": true
+  },
+  {
+    "_id": "match_39",
+    "team1": "team_3",
+    "team2": "team_7",
+    "status": "ended",
+    "sport": "Cricket",
+    "date_time": "2025-07-29T15:00:00Z",
+    "is_final": false,
+    "winner_id": "team_7",
+    "scores": {
+      "team1": { "runs": 115, "wickets": 10, "overs": "17.4" },
+      "team2": { "runs": 116, "wickets": 2, "overs": "15.0" }
+    }
+  },
+  {
+    "_id": "match_40",
+    "team1": "team_4",
+    "team2": "team_8",
+    "status": "live",
+    "sport": "Volleyball",
+    "date_time": "2025-08-03T12:00:00Z",
+    "is_final": false,
+    "scores": {
+      "sets": [
+        [25, 23],
+        [21, 25],
+        [20, 25]
+      ]
+    }
+  }
+]

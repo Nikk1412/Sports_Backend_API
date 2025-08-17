@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Department Results</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        select {
+            padding: 8px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Computer Science - Match History</h2>
+
+    <label for="year">Filter by Year:</label>
+    <select id="year" name="year" onchange="filterByYear()">
+        <option value="">All</option>
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+    </select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Sport</th>
+                <th>Position</th>
+                <th>Date</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody id="results">
+            <tr>
+                <td>Football</td>
+                <td>Winner</td>
+                <td>2025-07-01</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Cricket</td>
+                <td>Runner-up</td>
+                <td>2024-06-15</td>
+                <td>10</td>
+            </tr>
+            <!-- Populate dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        function filterByYear() {
+            const year = document.getElementById('year').value;
+            const rows = document.querySelectorAll('#results tr');
+            rows.forEach(row => {
+                const date = row.children[2].textContent;
+                row.style.display = !year || date.startsWith(year) ? '' : 'none';
+            });
+        }
+    </script>
+
+</body>
+
+</html>

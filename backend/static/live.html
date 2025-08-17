@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Live Matches</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #222;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Live Matches</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sport</th>
+                <th>Team 1</th>
+                <th>Team 2</th>
+                <th>Score</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody id="matchTableBody">
+        </tbody>
+    </table>
+
+    <script>
+        fetch("/live")
+            .then(res => res.json())
+            .then(data => {
+                const tbody = document.getElementById("matchTableBody");
+                data.data.forEach(match => {
+                    const tr = document.createElement("tr");
+
+                    const score1 = match.score1 ?? '-';
+                    const score2 = match.score2 ?? '-';
+                    const date = new Date(match.date_time).toLocaleString();
+
+                    tr.innerHTML = `
+                    <td>${match.sport}</td>
+                    <td>${match.team1 || match.team1_id}</td>
+                    <td>${match.team2 || match.team2_id}</td>
+                    <td>${score1} - ${score2}</td>
+                    <td>${match.status}</td>
+                    <td>${date}</td>
+                `;
+                    tbody.appendChild(tr);
+                });
+            })
+            .catch(err => {
+                document.getElementById("matchTableBody").innerHTML =
+                    '<tr><td colspan="6">Failed to load data</td></tr>';
+            });
+    </script>
+</body>
+
+</html>

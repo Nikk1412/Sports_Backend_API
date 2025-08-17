@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #222;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        select {
+            margin: 20px auto;
+            display: block;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Leaderboard</h2>
+
+    <select id="yearSelector" onchange="loadLeaderboard()">
+        <script>
+            for (let y = 1990; y <= 2050; y++) {
+                document.write(`<option value="${y}">${y}</option>`);
+            }
+        </script>
+    </select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Team 1</th>
+                <th>Team 2</th>
+                <th>Score</th>
+                <th>Winner</th>
+                <th>Sport</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboardBody"></tbody>
+    </table>
+
+    <script>
+        function loadLeaderboard() {
+            const year = document.getElementById("yearSelector").value;
+            fetch(`/leaderboard/${year}`)
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.getElementById("leaderboardBody");
+                    tbody.innerHTML = '';
+                    data.data.forEach((match, i) => {
+                        const tr = document.createElement("tr");
+                        tr.innerHTML = `
+                            <td>${i + 1}</td>
+                            <td>${match.team1 || match.team1_id}</td>
+                            <td>${match.team2 || match.team2_id}</td>
+                            <td>${match.score1 ?? '-'} - ${match.score2 ?? '-'}</td>
+                            <td>${match.winner ?? '-'}</td>
+                            <td>${match.sport}</td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                })
+                .catch(err => {
+                    document.getElementById("leaderboardBody").innerHTML =
+                        '<tr><td colspan="6">Failed to load data</td></tr>';
+                });
+        }
+
+        // Auto-load current year
+        document.getElementById("yearSelector").value = new Date().getFullYear();
+        loadLeaderboard();
+    </script>
+</body>
+
+</html>
