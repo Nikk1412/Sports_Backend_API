@@ -48,22 +48,14 @@ async def get_points(year: str = "current"):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-@router.get("/dept_history/{department}/{year}")
-async def department_history(department: str, year: str):
+@router.get("/dept_history/{department}")
+async def department_history(department: str):
     try:
-        if year == "all":
-            return JSONResponse(
-                status_code=200,
-                content={
-                    "message": "Data fetched successfully", 
-                    "data": jsonable_encoder(get_department_matches(department))
-                }
-            )
         return JSONResponse(
                 status_code=200,
                 content={
                     "message": "Data fetched successfully", 
-                    "data": jsonable_encoder(get_department_matches(department, int(year)))
+                    "data": jsonable_encoder(get_department_matches(department))
                 }
             )
     except:

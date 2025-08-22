@@ -1,7 +1,7 @@
 import uuid
-from fastapi import APIRouter, HTTPException, Request, Cookie, Path
+from fastapi import APIRouter, HTTPException, Request, Path
 from fastapi.responses import JSONResponse
-from app.db.db import update_match, create_match
+from app.db.db import update_match, create_match, delete_match
 import datetime
 router = APIRouter()
 
@@ -61,4 +61,11 @@ async def leaderboard(
                 status_code=200,
                 content={"message": "Data created successfully"}
             )
+    elif method == "delete":
+        if await delete_match(data):
+            return JSONResponse(
+                status_code=200,
+                content={"message": "Data deleted successfully"}
+            )
     raise HTTPException(status_code=400, detail="Invalid data")
+

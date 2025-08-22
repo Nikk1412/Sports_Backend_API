@@ -6,13 +6,16 @@ client = pymongo.MongoClient('mongodb://localhost:27017/')
 db = client.sports
 collection = db.matches
 
+async def delete_match(data):
+    return collection.delete_one({"_id": data["id"]})
+
 async def update_match(data):
     if "date_time" in data:
         # Parse ISO8601 string with Z (UTC)
         data["date_time"] = datetime.datetime.fromisoformat(
             data["date_time"].replace("Z", "+00:00")
         )
-    return collection.update_one({"_id": data["_id"]}, {"$set": data})
+    return collection.update_one({"_id": data["id"]}, {"$set": data})
 
 async def create_match(data):
     if "date_time" in data:
@@ -67,19 +70,20 @@ def get_final_matches(year: int):
     )) # TODO: Add projection
     
 
-def get_department_matches(department=None, year=None):
+def get_department_matches(department):
+    year = datetime.datetime.now().year
+    start = datetime.datetime(year, 1, 1)
+    end = datetime.datetime(year + 1, 1, 1)
+
     query = {
+        "date_time": {
+            "$gte": start, "$lt": end
+        },
         "$or": [
-            {"team1_id": department},
-            {"team2_id": department}
+            {"team1": department},
+            {"team2": department},
         ]
-    } if department else {}
-
-    if year:
-        start = datetime.datetime(year, 1, 1)
-        end = datetime.datetime(year + 1, 1, 1)
-        query["date_time"] = {"$gte": start, "$lt": end}
-
+    }
     return list(collection.find(query))
 
 def get_points_data(year: int):
