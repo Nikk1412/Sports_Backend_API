@@ -42,13 +42,21 @@ async def leaderboard(
     request: Request,
     method: str = Path(...)
 ):
-    # session_id = request.cookies.get("session_id")
-    # if session_id is None or session_id not in [user["session_id"] for user in USERS]:
-    #     raise HTTPException(status_code=401, detail="Missing session_id cookie")
-
-    # for user in USERS:
-    #     if user["session_id"] == session_id:
     data = await request.json()
+    print(data)
+    print(USERS)
+    session_id = data.get("session_id", None)
+    print(session_id)
+    if session_id is None:
+        raise HTTPException(status_code=401, detail="Missing session_id in payload")
+
+    is_admin = False
+    for user in USERS:
+        if user["session_id"] == session_id:
+            is_admin = True
+            break
+    if not is_admin:
+        raise HTTPException(status_code=403, detail="Wrong session_id")
     if method == "update":
         if await update_match(data):
             return JSONResponse(
@@ -68,4 +76,3 @@ async def leaderboard(
                 content={"message": "Data deleted successfully"}
             )
     raise HTTPException(status_code=400, detail="Invalid data")
-
