@@ -1,8 +1,14 @@
 import uuid
 import pymongo
 import datetime
+import certifi
+import os
 
-client = pymongo.MongoClient("mongodb+srv://nikhilmohite:pYFM70m8SI4cNOs1@cluster0.ttzletl.mongodb.net/")
+# Load MongoDB URI from environment variable (much safer)
+MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://nikhilmohite:pYFM70m8SI4cNOs1@cluster0.ttzletl.mongodb.net/")
+
+# Use TLS for Render deployment + Atlas SSL certificates
+client = pymongo.MongoClient(MONGO_URI, tls=True, tlsCAFile=certifi.where())
 
 db = client.sports
 collection = db.matches
@@ -12,7 +18,6 @@ async def delete_match(data):
 
 async def update_match(data):
     if "date_time" in data:
-        # Parse ISO8601 string with Z (UTC)
         data["date_time"] = datetime.datetime.fromisoformat(
             data["date_time"].replace("Z", "+00:00")
         )
@@ -20,12 +25,11 @@ async def update_match(data):
 
 async def create_match(data):
     if "date_time" in data:
-        # Parse ISO8601 string with Z (UTC)
         data["date_time"] = datetime.datetime.fromisoformat(
             data["date_time"].replace("Z", "+00:00")
         )
     data["_id"] = str(uuid.uuid4())
-    print(collection.insert_one(data))
+    collection.insert_one(data)
     return True
 
 def get_department_matches_filtered(filters: dict):
@@ -48,28 +52,13 @@ def get_department_matches_filtered(filters: dict):
     if filters["sport"] != "all":
         query["sport"] = filters["sport"]
     
-    print(query)
-
     cursor = collection.find(query)
-    # TODO: sort for `top`
-
     results = []
     for doc in cursor:
-        doc["_id"] = str(doc["_id"])  # serialize ObjectId
+        doc["_id"] = str(doc["_id"])
         results.append(doc)
 
     return results
-
-
-# def get_final_matches(year: int):
-#     start = datetime.datetime(year, 1, 1)
-#     end = datetime.datetime(year + 1, 1, 1)
-#     data = list(collection.find({
-#         "is_final": True
-#         # "date_time": {"$gte": start, "$lt": end}
-#     }, {"_id": 0}
-#     )) # TODO: Add projection
-    
 
 def get_department_matches(department):
     year = datetime.datetime.now().year
@@ -94,7 +83,7 @@ def get_points_data(year: int):
     query = {
         "status": "ended",
         "is_final": True,
-        "date_time": {"$gte": start, "$lt": end},  # assuming field is called "date"
+        "date_time": {"$gte": start, "$lt": end},
     }
 
     cursor = collection.find(query, {"team1": 1, "team2": 1, "winner_id": 1})
@@ -111,4 +100,3 @@ def get_points_data(year: int):
             data_dict[t2] += 20
             data_dict[t1] += 10
     return data_dict
-
