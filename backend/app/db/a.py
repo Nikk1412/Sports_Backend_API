@@ -2,7 +2,7 @@ import uuid
 import pymongo
 import datetime
 
-client = pymongo.MongoClient("mongodb://localhost:27017/")
+client = pymongo.MongoClient("mongodb+srv://nikhilmohite:pYFM70m8SI4cNOs1@cluster0.ttzletl.mongodb.net/")
 db = client.sports
 collection = db.matches
 

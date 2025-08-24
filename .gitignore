@@ -1,0 +1,35 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+.env.*
+
+# OS-specific & IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+
+# Logs, build artifacts, coverage
+*.log
+build/
+dist/
+coverage.*
+.pytest_cache/
+
+# Local data files
+*.ods
+*.json
+
+# Deployment
+Procfile

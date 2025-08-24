@@ -7,12 +7,12 @@ router = APIRouter()
 
 # Static users with fixed session_ids
 USERS = [
-    {"username": "a", "password": "a", "session_id": str(uuid.uuid4())},
-    {"username": "admin", "password": "pass123", "session_id": str(uuid.uuid4())},
-    {"username": "mod1", "password": "mod123", "session_id": str(uuid.uuid4())},
-    {"username": "player1", "password": "p123", "session_id": str(uuid.uuid4())},
-    {"username": "user1", "password": "u123", "session_id": str(uuid.uuid4())},
-    {"username": "guest", "password": "g123", "session_id": str(uuid.uuid4())},
+    {"username": "admin1", "password": "admin@1", "session_id": str(uuid.uuid4())},
+    {"username": "admin2", "password": "admin@2", "session_id": str(uuid.uuid4())},
+    {"username": "admin3", "password": "admin@3", "session_id": str(uuid.uuid4())},
+    {"username": "admin4", "password": "admin@4", "session_id": str(uuid.uuid4())},
+    {"username": "admin5", "password": "admin@5", "session_id": str(uuid.uuid4())},
+    {"username": "admin6", "password": "admin@6", "session_id": str(uuid.uuid4())},
 ]
 
 @router.post("/login")
@@ -31,11 +31,6 @@ async def login(request: Request):
 
     raise HTTPException(status_code=401, detail="Invalid credentials")
 
-def serialize_doc(doc):
-    for k, v in doc.items():
-        if isinstance(v, datetime.datetime):
-            doc[k] = v.isoformat()
-    return doc
 
 @router.post("/matches/{method}")
 async def leaderboard(

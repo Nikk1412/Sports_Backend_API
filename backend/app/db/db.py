@@ -2,7 +2,8 @@ import uuid
 import pymongo
 import datetime
 
-client = pymongo.MongoClient('mongodb://localhost:27017/')
+client = pymongo.MongoClient("mongodb+srv://nikhilmohite:pYFM70m8SI4cNOs1@cluster0.ttzletl.mongodb.net/")
+
 db = client.sports
 collection = db.matches
 
@@ -60,14 +61,14 @@ def get_department_matches_filtered(filters: dict):
     return results
 
 
-def get_final_matches(year: int):
-    start = datetime.datetime(year, 1, 1)
-    end = datetime.datetime(year + 1, 1, 1)
-    data = list(collection.find({
-        "is_final": True
-        # "date_time": {"$gte": start, "$lt": end}
-    }, {"_id": 0}
-    )) # TODO: Add projection
+# def get_final_matches(year: int):
+#     start = datetime.datetime(year, 1, 1)
+#     end = datetime.datetime(year + 1, 1, 1)
+#     data = list(collection.find({
+#         "is_final": True
+#         # "date_time": {"$gte": start, "$lt": end}
+#     }, {"_id": 0}
+#     )) # TODO: Add projection
     
 
 def get_department_matches(department):
